@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <!-- Edit Modal -->
+            <div id="editModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <form id="editPipForm" name="editPipForm" method="put">
+                        <span id="idPip" style="display: none;"></span>
+                        <label for="textpipedit"></label>
+                        <textarea name="textpipedit" id="textPipEdit" maxlength="255"
+                            placeholder="What are you thinking about?"></textarea>
+                        <p>
+                            <input type="submit" name="submit" value="Update Pip" class="btn btn-pip">
+                        </p>
+                    </form>
+                </div>
+
+            </div>
+            <div id="pipModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span id="pipCloseModal">&times;</span>
+                    <p>Find a way to copy Pip inputs</p>
+                </div>
+
+            </div>
+            <div class="row">
+                <section id="sidebar" class="col-2">
+                    <div class="sidebarNav">
+                        <ul>
+                            <li>
+                                <!--                                 <a class="sidebar-link" href="/"><img id="pipLogo"
+                                        src="/img/logo-julben-positive_blue.svg" alt="logo"></a> -->
+                                <button type="button" onclick="location.href='/';" class="btn sidebar-link"><img
+                                        id="pipLogo" src="/img/100-logo.svg" alt="logo"></button>
+                            </li>
+                            <li>
+                                <!--                                 <a class="sidebar-link" href="/"><i class="bi bi-house-fill"></i><span
+                                        class="sidebar-linktext">Home</span></a> -->
+                                <button type="button" onclick="location.href='/';" class="btn btn-sidebar-link"><i
+                                        class="bi bi-house-fill sidebar-link-icon"></i><span
+                                        class="sidebar-linktext">Home</span></button>
+                            </li>
+                            <li>
+                                <button type="button" onclick="location.href='/';" class="btn btn-sidebar-link"><i
+                                        class="bi bi-person-fill sidebar-link-icon"></i><span
+                                        class="sidebar-linktext">Profile</span></button>
+
+                            </li>
+                            <li>
+                                <button type="button" onclick="location.href='/';" class="btn btn-sidebar-link"><i
+                                        class="bi bi-globe2 sidebar-link-icon"></i><span
+                                        class="sidebar-linktext">Explore</span></button>
+
+                            </li>
+                            <li>
+
+
+                            </li>
+                        </ul>
+                        <div class="d-none modal-div">
+                            <!-- Modal Pip -->
+                            <button id="pipOpenModal" type="button" class="btn btn-pip btn-modal">Pip modal</button>
+                        </div>
+                    </div>
+                    <div class="loginDiv">
+                        <img class="userImg" src="/img/profilepic.png" alt="">
+                        <div class="loginInfo">
+                            <p class="userfirstname">Anette</p>
+                            <p class="username">@thavlov</p>
+                        </div>
+                    </div>
+                </section>
+                <section id="feed" class="col-8">
+                    <div id="pipbox" class="container">
+                        <h1>Hunnar</h1>
+                        <form id="newPipForm" name="newPipForm" method="post">
+                            <div class="d-flex">
+                                <img class="userImg" src="/img/profilepic.png" alt="">
+                                <span class="userfirstname">Anette</span>
+                            </div>
+                            <label for="textpip"></label>
+                            <textarea name="textpip" id="textPip" maxlength="255"
+                                placeholder="What are you thinking about?"></textarea>
+                            <p id="counter"><span id="current-count">0</span>/255</p>
+                            <p class="text-end">
+                                <input id="submit" type="submit" name="submit" value="Pip" class="btn btn-pip">
+                            </p>
+                        </form>
+                    </div>
+
+                    <div class="container p-0">
+                        <div class="pipFeed">
+
+                        </div>
+                        <!-- Pip Card Template -->
+                        <template id="pip-card">
+                            <div id="temp" class="postedPipBox">
+                                <div class="box postedPipBoxContent">
+                                    <div class="postedPipImg"><img id="userimage" src="x"
+                                            alt="profilepic"></div>
+                                    <div class="postedPipTextContent">
+                                        <div class="postedPipUserAndMenu row row-cols-2">
+                                            <div class="userInfo col"><span id="userfirstname"></span><span><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                        fill="currentColor"
+                                                        class="authenticate-icon bi bi-patch-check-fill"
+                                                        viewbox="0 0 16 16">
+                                                        <path
+                                                            d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
+                                                    </svg></span><span id="username"></span></div>
+                                            <div class="postedPipMenu col"><button onclick="dropdownPostedPip()"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                        fill="currentColor" class="bi bi-three-dots-vertical"
+                                                        viewbox="0 0 16 16">
+                                                        <path
+                                                            d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                                                    </svg></button></div>
+                                        </div>
+
+                                        <!-- Three dots Dropdown -->
+                                        <div class="dropdown">
+                                            <div id="dropdown-content-id-${item.idpip}" class="dropdown-content hide">
+                                                <a href="javascript:editModal(${item.idpip})">Edit</a>
+                                                <a href="javascript:deletePip(${item.idpip})">Delete</a>
+                                            </div>
+                                        </div>
+
+                                        <div id="timepip"><span></span></div>
+                                        <div>
+                                            <p id="textpip"></p>
+                                        </div>
+                                        <div class="postedPipActions row row-cols-2">
+                                            <div class="col"><button onclick="" class="pipCommentBtn"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                        fill="currentColor" class="bi bi-chat-left" viewbox="0 0 16 16">
+                                                        <path
+                                                            d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                                    </svg></button></div>
+                                            <div class="col"><button onclick="likePip()" class="pipLikesBtn"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                        fill="currentColor" class="bi bi-heart" viewbox="0 0 16 16">
+                                                        <path
+                                                            d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                                                    </svg>&nbsp<span id="likespip"></span></button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </template>
+                        <div class="pipFeedBottom">
+                            <h5>Congratulations!</h5>
+                            <p>You've reached the bottom of your feed.</p><button onclick="window.location.reload();"
+                                id="refresh" type="button" class="btn btn-pip">Refresh the page</button>
+                        </div>
+                    </div>
+                </section>
+                <section id="sidebar-right" class="col-2">
+                    <input type="search" id="site-search" placeholder="Search Pip" name="q">
+                    <button id="search-btn" type="submit" class="btn btn-pip">Search</button>
+                </section>
+            </div>
+        </div>
+        <div id="snackbar"></div>
+    </main>
+    <script src="/vanilla-frontend/index-script.js"></script>
+    <script src="/vanilla-frontend/update-script.js"></script>
+    <script src="/vanilla-frontend/load-script-new.js"></script>
+    <script src="/vanilla-frontend/fetch-script.js"></script>
+    <script src="/vanilla-frontend/components/create-pip.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

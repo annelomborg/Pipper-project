@@ -1,0 +1,15 @@
+###
+
+GET http://localhost:8000/pip/
+Accept: application/application/json
+
+POST http://localhost:8000/pip/
+Accept: application/application/json
+[ 
+    {
+    "idpip": default,
+    "userpip": "thavlov",
+    "timepip": "2022-09-29 09:00:45",
+    "likespip": 20,
+    }
+]

@@ -1,0 +1,6 @@
+{
+    "type" : "module",
+    "dependencies" : {
+        "cross-fetch": "0.0.4"
+    }
+  }

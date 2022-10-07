@@ -1,0 +1,550 @@
+body {
+    max-width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
+    color: black;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+p {
+    word-break: break-word;
+    white-space: normal;
+}
+
+h1 {
+    font-size: 1.2rem;
+}
+
+h2 {
+    font-size: 1rem;
+}
+
+input [class="userpip"] {
+    width: 100%;
+}
+
+textarea[name="textpip"] {
+    width: 100%;
+    height: auto;
+    border: none;
+    resize: none;
+
+}
+
+textarea[name="textpipedit"] {
+    width: 100%;
+    height: auto;
+    border: none;
+    resize: none;
+
+}
+
+textarea[name="textpip"]:focus {
+    outline: none;
+}
+
+
+#newPipForm {
+    padding-top: 10px
+}
+
+#pipLogo {
+    width: 20px;
+}
+
+#counter {
+    color: lightgrey;
+}
+
+#sidebar {
+    background-color: white;
+    padding-top: 10px;
+    min-height: 100vh;
+    padding: 10px 0px 0px 0px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+}
+
+#sidebar-right {
+    padding-top: 10px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+}
+
+#site-search {
+    background-color: WhiteSmoke;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: 0px solid transparent;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#search-btn {
+    width: 100%;
+}
+
+.loginDiv {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid #E8E8E8;
+    display: flex;
+    padding: 10px 0px 10px 0px;
+}
+
+.loginDiv p {
+    margin: 0;
+}
+
+#feed {
+    background-color: white;
+    border-left: solid 1px #E8E8E8;
+    border-right: solid 1px #E8E8E8;
+    padding: 10px 0px 0px 0px;
+}
+
+#pipbox {
+    border-bottom: solid 1px #E8E8E8;
+}
+
+svg {
+    transition: fill 0.3s;
+}
+
+button:hover svg.bi-heart {
+    fill: red;
+}
+
+.sidebar-link-icon {
+    padding-right: 16px;
+}
+
+.sidebar-link {
+    border: none;
+    border-radius: 25px;
+    padding: 0px 20px 8px 20px;
+    font-size: 20px;
+}
+
+.sidebar-link:hover {
+    border: none;
+    background-color: inherit;
+}
+
+.pipFeedBottom {
+    padding: 30px 0px 30px 0px;
+    text-align: center;
+    font-weight: normal;
+    background-color: WhiteSmoke;
+}
+
+.postedPipMenu {
+    text-align: right;
+}
+
+.btn-pip {
+    color: white;
+    background-color: #f55600;
+    border: none;
+    border-radius: 25px;
+    padding: 8px 40px;
+    font-weight: 500;
+
+}
+
+.btn-pip:hover, .btn-pip:focus, .btn-pip:active {
+    color: white;
+    background-color: #b43f00;
+}
+
+.btn-sidebar-link {
+    border: none;
+    border-radius: 25px;
+    padding: 8px 20px;
+    font-size: 20px;
+}
+
+.btn-sidebar-link:hover {
+    border: none;
+    background-color: WhiteSmoke;
+}
+
+ul li {
+    list-style-type: none;
+    padding: 0px 0px 6px 0px;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+.modal-div {
+    padding: 20px 20px 0px 0px;
+}
+
+.btn-modal {
+    width: 100%;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.postedPipBoxContent {
+    display: flex;
+}
+
+.postedPipTextContent {
+    width: 100%;
+}
+
+#textpip {
+    width: 100%;
+}
+
+.authenticate-icon {
+    margin-bottom: 3px;
+    margin-right: 5px;
+}
+
+.userImg {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+#userimage {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.userfirstname {
+    font-weight: bold;
+    margin-bottom: 0;
+    padding-right: 5px;
+}
+
+#userfirstname {
+    font-weight: bold;
+    margin-bottom: 0;
+    padding-right: 5px;
+}
+
+.username {
+    font-weight: normal;
+    color: #888;
+    margin-bottom: 0;
+}
+
+#username {
+    font-weight: normal;
+    color: #888;
+    margin-bottom: 0;
+}
+
+#username:before {
+    content: "@";
+}
+
+#timepip {
+    font-size: 12px;
+}
+
+.postedPipBox {
+    padding: 10px;
+    transition: background-color 0.3s;
+    border-bottom: solid 1px #E8E8E8;
+}
+
+.postedPipBox:hover {
+    background-color: WhiteSmoke;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+#pipCloseModal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* postedPipDropdown */
+
+.icons li {
+    background: none repeat scroll 0 0 #fff;
+    height: 7px;
+    width: 7px;
+    line-height: 0;
+    list-style: none outside none;
+    margin-right: 15px;
+    margin-top: 3px;
+    vertical-align: top;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.dropbtn {
+    background-color: #4CAF50;
+    position: fixed;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #3e8e41;
+}
+
+.dropdown {
+    position: absolute;
+    display: inline-block;
+    right: 0.4em;
+}
+
+.dropdown-content {
+    position: relative;
+    margin-top: 60px;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.hide {
+    display: none !important;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {
+    background-color: #f1f1f1
+}
+
+.show {
+    display: block;
+}
+
+/* Edit function and Modal */
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 
+Snackbar
+*/
+
+/* The snackbar - position it at the bottom and in the middle of the screen */
+#snackbar {
+    visibility: hidden;
+    /* Hidden by default. Visible on click */
+    min-width: 250px;
+    /* Set a default minimum width */
+    margin-left: -125px;
+    /* Divide value of min-width by 2 */
+    background-color: #333;
+    /* Black background color */
+    color: #fff;
+    /* White text color */
+    text-align: center;
+    /* Centered text */
+    border-radius: 2px;
+    /* Rounded borders */
+    padding: 16px;
+    /* Padding */
+    position: fixed;
+    /* Sit on top of the screen */
+    z-index: 1;
+    /* Add a z-index if needed */
+    left: 50%;
+    /* Center the snackbar */
+    bottom: 30px;
+    /* 30px from the bottom */
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+    visibility: visible;
+    /* Show the snackbar */
+    /* Add animation: Take 0.5 seconds to fade in and out the snackbar. 
+    However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .sidebar-linktext {
+        display: none;
+    }
+
+    li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sidebar-link i {
+        padding-right: 0px;
+    }
+}
